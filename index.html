@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras PWA</title>
+	<meta name="description" content="Gestiona tu lista de compras en esta PWA eficiente y fácil de usar.">	
+    <meta name="keywords" content="lista de compras, PWA, compras en línea">
+	<meta name="author" content="Jesus Mario Gastelum Rochin">
+    <link rel="stylesheet" href="styles.css">
+	<link rel="manifest" href="manifest.json">
+		
+	
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('service-worker.js')
+				.then((registration) => {
+					console.log('Service Worker registrado con éxito:', registration);
+				})
+				.catch((error) => {
+					console.error('Error al registrar el Service Worker:', error);
+				});
+		}
+	</script>
+	
+</head>
+<body>
+	<div id="service-worker-message"></div>
+	<div id="manifest-status"></div>
+	<center><a href="manifest.json" target="_blank">Ver el manifiesto</a></center>
+    <header>
+        <h1>Lista de Compras</h1>
+		<h2>JMGR 04311082</h2>
+    </header>
+    <main>
+        <section id="shopping-list">
+            <h2>Lista de Compras</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Elemento</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="list-items">
+                    <!-- Aquí se mostrarán los elementos de la lista de compras -->
+                </tbody>
+            </table>
+            <input type="text" id="new-item" placeholder="Agregar nuevo elemento">
+            <input type="date" id="purchase-date">
+            <button id="add-item">Agregar</button>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
